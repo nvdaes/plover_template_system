@@ -25,13 +25,13 @@ setup(
     install_requires = [
         'plover>=4.0.0.dev0',
     ],
-    py_modules = [
+    packages = [
         'plover_template_system',
     ],
     entry_points = '''
 
     [plover.system]
-    Template System = plover_template_system
+    Template System = plover_template_system.system
 
     ''',
     zip_safe = True,
