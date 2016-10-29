@@ -4,7 +4,7 @@ from setuptools import setup
 
 
 setup(
-    name = 'Plover: Template System',
+    name = 'plover_template_system',
     version = '0.5.1',
     description = 'Template system for Plover',
     author = 'Foo Bar',
