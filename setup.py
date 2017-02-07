@@ -34,5 +34,6 @@ setup(
     Template System = plover_template_system.system
 
     ''',
+    include_package_data = True,
     zip_safe = True,
 )
