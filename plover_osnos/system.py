@@ -2,33 +2,23 @@
 
 # #SPCTHVRIAEOcsthpr*ieao
 KEYS = (
-    '#',
-    'S-', 'P-', 'C-', 'T-', 'H-', 'V-', 'R-',
+    # '#',
+    'S-', 'P-', 'C-', 'T-', 'N-', 'V-', 'R-',
     'I-', 'A-',
     '-E', '-O',
-    '-c', '-s', '-t', '-h', '-p', '-r',
-    '*',
+    '-c', '-s', '-t', '-n', '-p', '-r',
+    #'*',
     '-i', '-e', '-a', '-o',
+    '*', '#'
 )
 
 IMPLICIT_HYPHEN_KEYS = KEYS
 
 SUFFIX_KEYS = ()
 
-NUMBER_KEY = '#'
+NUMBER_KEY = None
 
-NUMBERS = {
-    'S-': '1-',
-    'P-': '2-',
-    'T-': '3-',
-    'V-': '4-',
-    'I-': '5-',
-    '-O': '0-',
-    '-c': '-6',
-    '-t': '-7',
-    '-p': '-8',
-    '-i': '-9',
-}
+NUMBERS = {}
 
 UNDO_STROKE_STENO = '*'
 
@@ -119,13 +109,13 @@ KEYMAPS = {
         '-o'   : 'Z',
         'no-op': ('!', '^', '+'),
     },
-    'Stentura': {
+    'Stentura (Italian version)': {
         '#'    : '#',
         'S-'   : 'S-',
         'P-'   : 'T-',
         'C-'   : 'K-',
         'T-'   : 'P-',
-        'H-'   : 'W-',
+        'N-'   : 'W-',
         'V-'   : 'H-',
         'R-'   : 'R-',
         'I-'   : 'A-',
@@ -136,7 +126,7 @@ KEYMAPS = {
         '-c'   : '-F',
         '-s'   : '-R',
         '-t'   : '-P',
-        '-h'   : '-B',
+        '-n'   : '-B',
         '-p'   : '-L',
         '-r'   : '-G',
         '-i'   : '-T',
@@ -198,5 +188,5 @@ KEYMAPS = {
     },
 }
 
-DICTIONARIES_ROOT = 'asset:plover_template_system:dictionaries'
+DICTIONARIES_ROOT = 'asset:plover_osnos:dictionaries'
 DEFAULT_DICTIONARIES = ('template_system.json', 'user.json')
