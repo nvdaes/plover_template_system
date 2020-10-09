@@ -1,7 +1,7 @@
 LONGEST_KEY = 1
 
 dict = {
-	"SC": "casa", "ca"
+	"SC": ("casa", "ca")
 }
 
 lastValue = None
@@ -11,7 +11,7 @@ def lookup(key):
 	global lastValue
 	value = ""
 	try:
-		value = dict[key]
+		value = (dict[key])[0]
 		lastValue = value
 		return value
 	except KeyError:
@@ -19,9 +19,9 @@ def lookup(key):
 	n = len(key)
 	searchKey = key[:]
 	for n in range(n):
+		lenSearchKey = len(searchKey)
 		try:
-			value += dict[searchKey]
-			lenSearchKey = len(searchKey)
+			value += (dict[searchKey])[1]
 			searchKey = key[lenSearchKey:]
 		except KeyError:
 			searchKey.pop()
