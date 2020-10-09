@@ -1,29 +1,30 @@
 LONGEST_KEY = 1
 
 dict = {
-	"SC": ("casa", "ca")
+	"SC": ("casa", "ca"),
+	"N": ("nana", "n")
 }
 
-lastValue = None
+lastValue = ""
 
 def lookup(key):
-	assert len(key) <= LONGEST_KEY, '%d/%d' % (len(key), LONGEST_KEY)
 	global lastValue
 	value = ""
-	try:
-		value = (dict[key])[0]
-		lastValue = value
-		return value
-	except KeyError:
-		pass
-	n = len(key)
-	searchKey = key[:]
-	for n in range(n):
-		lenSearchKey = len(searchKey)
-		try:
-			value += (dict[searchKey])[1]
-			searchKey = key[lenSearchKey:]
-		except KeyError:
-			searchKey.pop()
+	if dict.get(key[0]) is not None:
+		value = dict.get(key[0])[0] 
+		if value == "":
+			value = dict.get(key[0])[1]
+	if value == "":
+		searchKey = key[0][:]
+		searchKeyValue = ""
+		while len(searchKey) > 0:
+			if dict.get(searchKey) is not None:
+				searchKeyValue = dict.get(searchKey)[1]
+			if searchKeyValue == "":
+				searchKey = searchKey[:len(searchKey)-1]
+			else:
+				value += searchKeyValue
+				searchKeyValue = ""
+				searchKey = key[0][len(searchKey):]
 	lastValue = value
 	return value
