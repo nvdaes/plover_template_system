@@ -1,3 +1,10 @@
+import os
+import sys
+sys.path.append(os.path.dirname(__file__))
+import common
+del sys.path[-1]
+
+
 LONGEST_KEY = 1
 
 numbers = {
@@ -13,16 +20,13 @@ numbers = {
 	"i": "9"
 }
 
-
 dict = {
 	"SC": ("casa ", "ca", True),
 	"N": ("nana ", "n", False)
 }
 
-lastValue = ""
 
 def lookup(key):
-	global lastValue
 	value = ""
 	# Numbers
 	if "#" in key[0]:
@@ -39,23 +43,11 @@ def lookup(key):
 			else:
 				value = "{firstDigit}{secondDigit}".format(firstDigit=value, secondDigit=value)
 	if value == "" and dict.get(key[0]) is not None:
-		if lastValue == "" or lastValue.endswith(" ") or not dict.get(key[0])[2]:
+		if common.lastValue == "" or common.lastValue.endswith(" ") or not dict.get(key[0])[2]:
 			value = dict.get(key[0])[0] 
 		if value == "":
-			value = dict.get(key[0])[1]
-	if value == "":
-		searchKey = key[0][:-1]
-		searchKeyValue = ""
-		while len(searchKey) > 0:
-			if dict.get(searchKey) is not None:
-				searchKeyValue = dict.get(searchKey)[1]
-			if searchKeyValue == "":
-				searchKey = searchKey[:len(searchKey)-1]
-			else:
-				value += searchKeyValue
-				searchKeyValue = ""
-				searchKey = key[0][len(searchKey):]
-	lastValue = value
+			value = common.reverseSearch(dict, key[0])
+	common.lastValue = value
 	if value.endswith(" "):
 		return value
-	return "{^}" + value
+	return value + "{^}"

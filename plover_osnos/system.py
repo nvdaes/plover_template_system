@@ -189,4 +189,4 @@ KEYMAPS = {
 }
 
 DICTIONARIES_ROOT = 'asset:plover_osnos:dictionaries'
-DEFAULT_DICTIONARIES = ('semplice.py', 'user.json')
+DEFAULT_DICTIONARIES = ('semplice.py', 'double.py', 'common.py', 'user.json')
